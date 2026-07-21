@@ -114,22 +114,3 @@ export function PhoenixCreature({ className }: CreatureProps) {
     </svg>
   );
 }
-
-/** Viajes — golondrina lista para despegar */
-export function SwallowCreature({ className }: CreatureProps) {
-  return (
-    <svg viewBox="0 0 80 80" className={className}>
-      <rect x="30" y="64" width="20" height="14" rx="2" fill="#78350f" />
-      <rect x="37" y="60" width="6" height="5" rx="1" fill="#78350f" />
-      <ellipse cx="40" cy="50" rx="14" ry="11" fill="#0284c7" />
-      <ellipse cx="40" cy="56" rx="8" ry="6" fill="#f0f9ff" />
-      <circle cx="40" cy="40" r="8" fill="#0284c7" />
-      <circle cx="43" cy="38" r="1.8" fill="#1c1917" />
-      <path d="M40 40 L48 42 L40 44 Z" fill="#f59e0b" />
-      <path d="M30 44 L44 42 Z" stroke="none" />
-      <path d="M36 50 L18 34 L34 54 Z" fill="#0369a1" className="swallow-wing-left" />
-      <path d="M44 50 L62 34 L46 54 Z" fill="#0369a1" className="swallow-wing-right" />
-      <path d="M50 56 L60 52 L52 62 Z" fill="#0284c7" />
-    </svg>
-  );
-}

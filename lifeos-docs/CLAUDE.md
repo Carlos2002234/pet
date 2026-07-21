@@ -33,8 +33,10 @@ según el cumplimiento de hábitos y objetivos reales del usuario.
   usuario lo indique.
 
 ## Alcance reducido (decisión del usuario)
-- El MVP arranca con 6 categorías/mascotas, no 15 (deporte, lectura, estudio, finanzas,
-  espiritualidad, viajes). Los módulos 6+ que mencionan "15 mascotas" ya se actualizaron a 6.
+- El MVP arranca con 5 categorías/mascotas, no 15 (deporte, lectura, estudio, finanzas,
+  espiritualidad). "Viajes" existió brevemente como 6ta categoría y se eliminó por completo
+  (trigger + datos existentes) el 2026-07-21 a pedido del usuario. Los módulos que mencionan
+  "15 mascotas" ya se actualizaron a 5.
 
 ## Reglas importantes para Claude Code
 - NUNCA leer `/src` completo. Pedir siempre archivos específicos.

@@ -21,7 +21,7 @@ export default async function FarmPage() {
 
   const { data: progress } = await supabase
     .from("pet_progress")
-    .select("category_id, current_stage_id, energy");
+    .select("category_id, current_stage_id, energy, total_xp");
 
   const { data: stages } = await supabase
     .from("pet_evolution_stages")
@@ -83,7 +83,7 @@ export default async function FarmPage() {
           </svg>
 
           {/* Mascotas, todas paradas sobre el pasto */}
-          <div className="absolute inset-x-0 bottom-6 flex flex-wrap items-end justify-center gap-x-6 gap-y-4 px-6">
+          <div className="absolute inset-x-0 bottom-6 flex flex-wrap items-end justify-center gap-x-14 gap-y-4 px-6">
             {(categories ?? []).map((category, index) => {
               const row = progressByCategory.get(category.id);
               const stage = row ? stageById.get(row.current_stage_id) : undefined;
@@ -94,9 +94,10 @@ export default async function FarmPage() {
                   petName={category.pet_name}
                   stageName={stage?.name ?? "Huevo"}
                   stageOrder={stage?.order ?? 0}
+                  totalXp={row?.total_xp ?? 0}
                   energy={row?.energy ?? 100}
-                  duration={4 + (index % 3)}
-                  delay={index * 0.35}
+                  duration={9 + (index % 4) * 1.5}
+                  delay={index * 0.6}
                 />
               );
             })}

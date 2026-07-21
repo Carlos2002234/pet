@@ -12,12 +12,12 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Archivos: `/app/(auth)/*`, `/lib/supabase/*`, `middleware.ts`
 - Dependencias: ninguna
 
-## Módulo 2: Modelo de categorías + seed de las 6 mascotas ✅
+## Módulo 2: Modelo de categorías + seed de las 5 mascotas ✅
 - [x] Tablas `categories`, `pet_evolution_stages` en Supabase (SQL migration)
-- [x] Seed de las 6 categorías (deporte, lectura, estudio, finanzas, espiritualidad, viajes)
+- [x] Seed de las 5 categorías (deporte, lectura, estudio, finanzas, espiritualidad)
       vía trigger `on_auth_user_created_seed_categories` (categories es por-usuario, no catálogo global)
 - [x] Seed de las 8 etapas de evolución con umbrales de XP (`supabase/seed.sql`)
-- [x] Página simple que liste las 6 mascotas (sin diseño final aún, solo datos reales)
+- [x] Página simple que liste las 5 mascotas (sin diseño final aún, solo datos reales)
 - Archivos: `supabase/migrations/*`, `supabase/seed.sql`, `/app/categories/page.tsx`
 - Dependencias: Módulo 1
 
@@ -46,7 +46,7 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Dependencias: Módulo 2 (no depende del pet engine directamente)
 
 ## Módulo 6: Dashboard principal ✅
-- [x] Vista con las 6 mascotas y su estado (etapa, energía, XP)
+- [x] Vista con las 5 mascotas y su estado (etapa, energía, XP)
 - [x] Resumen: racha actual, XP total, % cumplimiento semanal
 - [x] Objetivos activos destacados
 - [x] `/` y `/login`/`/register` ahora redirigen a `/dashboard` según sesión
@@ -83,12 +83,15 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Dependencias: Módulo 3
 
 ## Extra (post-MVP, pedido directo del usuario 2026-07-21): La Granja
-- [x] `/app/farm` — escena con las 6 mascotas viviendo juntas, cada una con animación
-      CSS independiente de vaivén (`farm-wander`, duración/delay distintos por mascota)
-      para que se sientan vivas sin sincronizarse entre sí
-- Archivos: `/app/farm/page.tsx`, `/components/pets/FarmCreature.tsx`
-- No estaba en el roadmap original; el usuario pidió explícitamente "inventar personajes
-  que se muevan" sin herramienta de generación de imágenes disponible
+- [x] `/app/farm` — escena real de granja (cielo, sol, granero, pasto) con las 5 mascotas
+      paradas juntas, cada una con un personaje SVG propio (no emoji) y su accesorio
+      integrado (oso con barra, dragón con monedas, etc.) haciendo algo relacionado a su
+      categoría, con animación CSS de vaivén independiente por mascota
+- Archivos: `/app/farm/page.tsx`, `/components/pets/creatures.tsx`, `/components/pets/FarmZone.tsx`
+- No estaba en el roadmap original; iteración varias veces a pedido del usuario (emoji →
+  personajes vectoriales propios → escena de granja real, sin generador de imágenes disponible)
+- 2026-07-21: se redujo de 6 a 5 categorías, eliminando "viajes" por completo de la app
+  (ver "Alcance reducido" en CLAUDE.md)
 
 ---
 
