@@ -29,11 +29,12 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Archivos: `/lib/pets/engine.ts`, migration de `pet_progress`
 - Dependencias: Módulo 2
 
-## Módulo 4: Acciones/hábitos (logging)
-- [ ] Tablas `action_types`, `action_logs`
-- [ ] Seed de acciones base por categoría (ej. "Entrené hoy" en Entrenamiento)
-- [ ] UI para marcar una acción como cumplida → llama a `logAction()` → dispara `PetEngine`
-- [ ] Feedback visual simple de "+XP" al registrar
+## Módulo 4: Acciones/hábitos (logging) ✅
+- [x] Tablas `action_types`, `action_logs`
+- [x] Seed de 2 acciones base por categoría vía trigger (ej. "Entrené hoy" +15xp /
+      "Sesión intensa de entrenamiento" +30xp en Deporte)
+- [x] UI para marcar una acción como cumplida → llama a `logAction()` → dispara `PetEngine`
+- [x] Feedback visual simple de "+XP" al registrar
 - Archivos: `/app/categories/[slug]/*`, server action `logAction`
 - Dependencias: Módulo 3
 

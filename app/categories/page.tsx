@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
@@ -43,27 +44,29 @@ export default async function CategoriesPage() {
 
         <ul className="grid gap-4 sm:grid-cols-2">
           {categories?.map((category) => (
-            <li
-              key={category.id}
-              className="rounded-lg border border-neutral-800 bg-neutral-900 p-4"
-            >
-              <div className="flex items-center gap-2">
-                <span className="text-2xl">{category.icon}</span>
-                <div>
-                  <p className="font-medium text-neutral-50">
-                    {category.name}
-                  </p>
-                  <p className="text-sm text-neutral-400">
-                    {category.pet_name}
-                  </p>
+            <li key={category.id}>
+              <Link
+                href={`/categories/${category.slug}`}
+                className="block rounded-lg border border-neutral-800 bg-neutral-900 p-4 transition hover:border-neutral-600"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">{category.icon}</span>
+                  <div>
+                    <p className="font-medium text-neutral-50">
+                      {category.name}
+                    </p>
+                    <p className="text-sm text-neutral-400">
+                      {category.pet_name}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <p className="mt-3 text-xs text-neutral-500">
-                {category.pet_archetype}
-              </p>
-              <p className="mt-1 text-sm text-neutral-300">
-                {category.pet_justification}
-              </p>
+                <p className="mt-3 text-xs text-neutral-500">
+                  {category.pet_archetype}
+                </p>
+                <p className="mt-1 text-sm text-neutral-300">
+                  {category.pet_justification}
+                </p>
+              </Link>
             </li>
           ))}
         </ul>
