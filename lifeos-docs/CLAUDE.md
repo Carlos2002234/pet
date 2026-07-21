@@ -19,9 +19,14 @@ según el cumplimiento de hábitos y objetivos reales del usuario.
 - Un módulo = una feature completa (schema + UI + lógica), no se mezcla trabajo de dos módulos en el mismo commit
 
 ## Estado actual del proyecto
-- Fase: MVP - Módulo 1 (Setup + Auth)
-- Último módulo completado: Módulo 1 — Setup, Next.js + Supabase Auth (email/password; Google OAuth pendiente de credenciales)
-- Próximo módulo: Módulo 2 — Modelo de categorías + seed de las 15 mascotas
+- Fase: MVP - Módulo 2 (Categorías)
+- Último módulo completado: Módulo 2 — categorías (deporte, lectura, estudio, finanzas,
+  espiritualidad, viajes) + etapas de evolución. Proyecto Supabase real "lifeos" creado y conectado.
+- Próximo módulo: Módulo 3 — Motor de XP y evolución (Pet Engine)
+
+## Alcance reducido (decisión del usuario)
+- El MVP arranca con 6 categorías/mascotas, no 15 (deporte, lectura, estudio, finanzas,
+  espiritualidad, viajes). Los módulos 6+ que mencionan "15 mascotas" ya se actualizaron a 6.
 
 ## Reglas importantes para Claude Code
 - NUNCA leer `/src` completo. Pedir siempre archivos específicos.

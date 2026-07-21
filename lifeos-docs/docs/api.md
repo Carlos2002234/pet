@@ -3,7 +3,7 @@
 Se usan Next.js Server Actions en vez de una API REST separada. Todo requiere sesión activa de Supabase Auth.
 
 ## Categorías / Mascotas
-- `getCategories()` → lista las 15 categorías del usuario con su `pet_progress`
+- `getCategories()` → lista las 6 categorías del usuario con su `pet_progress`
 - `getCategoryDetail(slug)` → categoría + progreso + últimas 10 acciones + objetivos activos
 
 ## Acciones (hábitos)

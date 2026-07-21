@@ -3,7 +3,7 @@
 Todas las tablas usan RLS: `user_id = auth.uid()` como policy base salvo que se indique lo contrario.
 
 ## `categories`
-Las 15 categorías iniciales se insertan como seed data, no hardcodeadas en el código.
+Las 6 categorías iniciales se insertan como seed data, no hardcodeadas en el código.
 
 | columna | tipo | notas |
 |---|---|---|

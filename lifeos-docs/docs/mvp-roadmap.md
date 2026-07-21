@@ -12,11 +12,12 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Archivos: `/app/(auth)/*`, `/lib/supabase/*`, `middleware.ts`
 - Dependencias: ninguna
 
-## Módulo 2: Modelo de categorías + seed de las 15 mascotas
-- [ ] Tablas `categories`, `pet_evolution_stages` en Supabase (SQL migration)
-- [ ] Seed de las 15 categorías con nombre, arquetipo y justificación de cada mascota
-- [ ] Seed de las 8 etapas de evolución con umbrales de XP
-- [ ] Página simple que liste las 15 mascotas (sin diseño final aún, solo datos reales)
+## Módulo 2: Modelo de categorías + seed de las 6 mascotas ✅
+- [x] Tablas `categories`, `pet_evolution_stages` en Supabase (SQL migration)
+- [x] Seed de las 6 categorías (deporte, lectura, estudio, finanzas, espiritualidad, viajes)
+      vía trigger `on_auth_user_created_seed_categories` (categories es por-usuario, no catálogo global)
+- [x] Seed de las 8 etapas de evolución con umbrales de XP (`supabase/seed.sql`)
+- [x] Página simple que liste las 6 mascotas (sin diseño final aún, solo datos reales)
 - Archivos: `supabase/migrations/*`, `supabase/seed.sql`, `/app/categories/page.tsx`
 - Dependencias: Módulo 1
 
@@ -43,7 +44,7 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Dependencias: Módulo 2 (no depende del pet engine directamente)
 
 ## Módulo 6: Dashboard principal
-- [ ] Vista con las 15 mascotas y su estado (etapa, energía, XP)
+- [ ] Vista con las 6 mascotas y su estado (etapa, energía, XP)
 - [ ] Resumen: racha actual, XP total, % cumplimiento semanal
 - [ ] Objetivos activos destacados
 - Archivos: `/app/dashboard/*`, `getDashboardSummary()`

@@ -1,7 +1,7 @@
 # UX Flows — LifeOS (MVP)
 
 ## Journey principal: registrar una acción diaria
-1. Usuario entra a Dashboard → ve sus 15 mascotas
+1. Usuario entra a Dashboard → ve sus 6 mascotas
 2. Toca la categoría "Entrenamiento" → entra al detalle
 3. Ve lista de acciones disponibles ("Entrené hoy", "Cardio 20 min"...)
 4. Marca "Entrené hoy" → animación de +XP → posible evolución de mascota (animación especial si aplica)
