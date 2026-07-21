@@ -16,6 +16,9 @@ export function BearCreature({ className }: CreatureProps) {
       <circle cx="44" cy="42" r="2.4" fill="#1c1917" />
       <circle cx="40" cy="53" r="2" fill="#1c1917" />
       <rect x="20" y="34" width="40" height="6" rx="3" fill="#dc2626" />
+      <rect x="10" y="60" width="60" height="4" rx="2" fill="#57534e" />
+      <circle cx="12" cy="62" r="7" fill="#292524" />
+      <circle cx="68" cy="62" r="7" fill="#292524" />
       <g className="bear-arm-left">
         <ellipse cx="16" cy="52" rx="7" ry="10" fill="#b45309" />
       </g>
@@ -74,6 +77,10 @@ export function DolphinCreature({ className }: CreatureProps) {
 export function DragonCreature({ className }: CreatureProps) {
   return (
     <svg viewBox="0 0 80 80" className={className}>
+      <ellipse cx="24" cy="68" rx="7" ry="5" fill="#facc15" />
+      <ellipse cx="34" cy="70" rx="7" ry="5" fill="#fde047" />
+      <ellipse cx="46" cy="70" rx="7" ry="5" fill="#facc15" />
+      <ellipse cx="56" cy="68" rx="7" ry="5" fill="#fde047" />
       <ellipse cx="40" cy="52" rx="21" ry="18" fill="#059669" />
       <path d="M28 34 L32 24 L36 34 Z" fill="#047857" />
       <path d="M38 32 L42 20 L46 32 Z" fill="#047857" />
@@ -112,6 +119,8 @@ export function PhoenixCreature({ className }: CreatureProps) {
 export function SwallowCreature({ className }: CreatureProps) {
   return (
     <svg viewBox="0 0 80 80" className={className}>
+      <rect x="30" y="64" width="20" height="14" rx="2" fill="#78350f" />
+      <rect x="37" y="60" width="6" height="5" rx="1" fill="#78350f" />
       <ellipse cx="40" cy="50" rx="14" ry="11" fill="#0284c7" />
       <ellipse cx="40" cy="56" rx="8" ry="6" fill="#f0f9ff" />
       <circle cx="40" cy="40" r="8" fill="#0284c7" />
