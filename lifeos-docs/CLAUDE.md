@@ -19,10 +19,11 @@ según el cumplimiento de hábitos y objetivos reales del usuario.
 - Un módulo = una feature completa (schema + UI + lógica), no se mezcla trabajo de dos módulos en el mismo commit
 
 ## Estado actual del proyecto
-- Fase: MVP - Módulo 2 (Categorías)
-- Último módulo completado: Módulo 2 — categorías (deporte, lectura, estudio, finanzas,
-  espiritualidad, viajes) + etapas de evolución. Proyecto Supabase real "lifeos" creado y conectado.
-- Próximo módulo: Módulo 3 — Motor de XP y evolución (Pet Engine)
+- Fase: MVP - Módulo 3 (Pet Engine)
+- Último módulo completado: Módulo 3 — tabla `pet_progress` (creada automáticamente por
+  categoría vía trigger) + `/lib/pets/engine.ts` (`applyXP()`, `decayCheck()`). Verificado con
+  usuario de prueba real: XP acumula, la etapa sube según umbral y puede saltar etapas de golpe.
+- Próximo módulo: Módulo 4 — Acciones/hábitos (logging)
 
 ## Alcance reducido (decisión del usuario)
 - El MVP arranca con 6 categorías/mascotas, no 15 (deporte, lectura, estudio, finanzas,

@@ -21,10 +21,11 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Archivos: `supabase/migrations/*`, `supabase/seed.sql`, `/app/categories/page.tsx`
 - Dependencias: Módulo 1
 
-## Módulo 3: Motor de XP y evolución (Pet Engine)
-- [ ] Tabla `pet_progress`
-- [ ] `/lib/pets/engine.ts` — `applyXP()`, cálculo de stage, `decayCheck()`
-- [ ] Tests manuales: aplicar XP manualmente y verificar que sube de etapa correctamente
+## Módulo 3: Motor de XP y evolución (Pet Engine) ✅
+- [x] Tabla `pet_progress` (trigger la crea automáticamente por cada categoría, etapa inicial "Huevo")
+- [x] `/lib/pets/engine.ts` — `applyXP()`, cálculo de stage, `decayCheck()`
+- [x] Tests manuales: +50xp (no evoluciona) → +60xp más (evoluciona Huevo→Bebé) →
+      +1000xp (salta directo Bebé→Adulto, saltándose Juvenil correctamente)
 - Archivos: `/lib/pets/engine.ts`, migration de `pet_progress`
 - Dependencias: Módulo 2
 
