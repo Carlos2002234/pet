@@ -19,18 +19,18 @@ según el cumplimiento de hábitos y objetivos reales del usuario.
 - Un módulo = una feature completa (schema + UI + lógica), no se mezcla trabajo de dos módulos en el mismo commit
 
 ## Estado actual del proyecto
-- Fase: MVP - Módulo 8 (Gamificación)
-- Último módulo completado: Módulo 8 — `/app/missions` con misiones diarias/semanales
-  auto-completadas (`/lib/missions/generateMissions.ts`, `evaluateMissions.ts`) y logros
-  básicos (`getAchievements.ts`). El decaimiento de energía corre vía `pg_cron` (diario,
-  3am) llamando a `decay_inactive_pets_all()` — se usó `pg_cron` + función SQL en vez de
-  una Edge Function Deno porque la lógica es pura SQL. Se agregaron `rule_key`/`target_count`
-  a `missions` (no estaban en `docs/database.md`) porque las misiones se auto-completan
-  comparando progreso real, no con un botón manual. Verificado con usuario real: 3 acciones
-  en Deporte completaron ambas misiones diarias (+60 XP total en Deporte) y desbloqueó el
-  logro "Primer paso"; decaimiento probado directamente (una categoría inactiva 10 días
-  bajó de 100→90 de energía, las demás quedaron intactas).
-- Próximo módulo: Módulo 9 — Pulido visual de mascotas
+- Fase: MVP - Módulo 9 (Pulido visual) — con esto se cierra el MVP completo (Módulos 1-9)
+- Último módulo completado: Módulo 9 — `/components/pets/PetAvatar.tsx` (glow + tamaño de
+  ícono + 8 puntos de progreso, todo escalado por `stageOrder`) reemplaza el emoji plano en
+  `/categories`, `/categories/[slug]` y `/dashboard`; `/components/pets/EvolutionCelebration.tsx`
+  anima la evolución (keyframe CSS) cuando `PetEngine.applyXP()` devuelve `evolved: true`.
+  Sin herramienta de generación de imágenes disponible, se documentó la desviación del
+  roadmap (arte real → sistema visual por etapa). Verificado con usuario real en 6 etapas
+  distintas (Huevo a Divino): el glow y los puntos escalan visualmente de forma correcta, y
+  la animación de evolución se disparó y confirmó al cruzar 300 XP (Bebé→Juvenil en Finanzas).
+- Próximo: MVP completo. Quedan Fase 2 (IA por categoría, memoria compartida, reportes) y
+  Fase 3 (wearables, banca, voz, visión) — explícitamente fuera de alcance hasta que el
+  usuario lo indique.
 
 ## Alcance reducido (decisión del usuario)
 - El MVP arranca con 6 categorías/mascotas, no 15 (deporte, lectura, estudio, finanzas,

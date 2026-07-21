@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { EvolutionCelebration } from "@/components/pets/EvolutionCelebration";
 import { logAction } from "./actions";
 
 type ActionType = {
@@ -11,24 +12,31 @@ type ActionType = {
   difficulty: string;
 };
 
-export function ActionList({ actionTypes }: { actionTypes: ActionType[] }) {
+export function ActionList({
+  actionTypes,
+  petIcon,
+}: {
+  actionTypes: ActionType[];
+  petIcon: string | null;
+}) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [pendingId, setPendingId] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [evolution, setEvolution] = useState<string | null>(null);
 
   function handleLog(actionType: ActionType) {
     setPendingId(actionType.id);
     setFeedback(null);
+    setEvolution(null);
 
     startTransition(async () => {
       try {
         const result = await logAction(actionType.id);
-        setFeedback(
-          result.evolved
-            ? `+${result.xpAwarded} XP · ¡Tu mascota evolucionó a ${result.newStage.stageName}!`
-            : `+${result.xpAwarded} XP`,
-        );
+        setFeedback(`+${result.xpAwarded} XP`);
+        if (result.evolved) {
+          setEvolution(result.newStage.stageName);
+        }
         router.refresh();
       } catch (error) {
         setFeedback(
@@ -42,6 +50,10 @@ export function ActionList({ actionTypes }: { actionTypes: ActionType[] }) {
 
   return (
     <div className="space-y-3">
+      {evolution && (
+        <EvolutionCelebration petIcon={petIcon} stageName={evolution} />
+      )}
+
       {feedback && (
         <p className="rounded-md border border-emerald-800 bg-emerald-950 px-3 py-2 text-sm text-emerald-300">
           {feedback}

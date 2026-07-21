@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getDashboardSummary } from "@/lib/dashboard/getDashboardSummary";
+import { PetAvatar } from "@/components/pets/PetAvatar";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -68,8 +69,8 @@ export default async function DashboardPage() {
                   href={`/categories/${pet.slug}`}
                   className="block rounded-lg border border-neutral-800 bg-neutral-900 p-4 transition hover:border-neutral-600"
                 >
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl">{pet.icon}</span>
+                  <div className="flex items-center gap-3">
+                    <PetAvatar icon={pet.icon} stageOrder={pet.stageOrder} size="sm" />
                     <div>
                       <p className="font-medium text-neutral-50">{pet.petName}</p>
                       <p className="text-sm text-neutral-400">{pet.name}</p>

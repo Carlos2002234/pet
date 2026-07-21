@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { PetAvatar } from "@/components/pets/PetAvatar";
 import { ActionList } from "./action-list";
 
 export default async function CategoryDetailPage({
@@ -36,13 +37,15 @@ export default async function CategoryDetailPage({
     .single();
 
   let stage: string | undefined;
+  let stageOrder = 0;
   if (progress) {
     const { data: stageRow } = await supabase
       .from("pet_evolution_stages")
-      .select("stage_name")
+      .select("stage_name, stage_order")
       .eq("id", progress.current_stage_id)
       .single();
     stage = stageRow?.stage_name;
+    stageOrder = stageRow?.stage_order ?? 0;
   }
 
   const { data: actionTypes } = await supabase
@@ -60,7 +63,7 @@ export default async function CategoryDetailPage({
           </Link>
 
           <div className="mt-3 flex items-center gap-3">
-            <span className="text-3xl">{category.icon}</span>
+            <PetAvatar icon={category.icon} stageOrder={stageOrder} size="lg" />
             <div>
               <h1 className="text-2xl font-semibold text-neutral-50">
                 {category.pet_name}
@@ -76,7 +79,7 @@ export default async function CategoryDetailPage({
           )}
         </div>
 
-        <ActionList actionTypes={actionTypes ?? []} />
+        <ActionList actionTypes={actionTypes ?? []} petIcon={category.icon} />
       </div>
     </main>
   );

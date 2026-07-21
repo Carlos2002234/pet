@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { PetAvatar } from "@/components/pets/PetAvatar";
 
 export default async function CategoriesPage() {
   const supabase = await createClient();
@@ -17,6 +18,19 @@ export default async function CategoriesPage() {
     .from("categories")
     .select("id, slug, name, icon, pet_name, pet_archetype, pet_justification")
     .order("name");
+
+  const { data: progress } = await supabase
+    .from("pet_progress")
+    .select("category_id, current_stage_id");
+
+  const { data: stages } = await supabase
+    .from("pet_evolution_stages")
+    .select("id, stage_order");
+
+  const stageOrderById = new Map((stages ?? []).map((s) => [s.id, s.stage_order]));
+  const stageOrderByCategory = new Map(
+    (progress ?? []).map((p) => [p.category_id, stageOrderById.get(p.current_stage_id) ?? 0]),
+  );
 
   return (
     <main className="min-h-screen bg-neutral-950 px-4 py-12">
@@ -49,8 +63,12 @@ export default async function CategoriesPage() {
                 href={`/categories/${category.slug}`}
                 className="block rounded-lg border border-neutral-800 bg-neutral-900 p-4 transition hover:border-neutral-600"
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">{category.icon}</span>
+                <div className="flex items-center gap-3">
+                  <PetAvatar
+                    icon={category.icon}
+                    stageOrder={stageOrderByCategory.get(category.id) ?? 0}
+                    size="sm"
+                  />
                   <div>
                     <p className="font-medium text-neutral-50">
                       {category.name}

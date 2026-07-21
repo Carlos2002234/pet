@@ -23,7 +23,7 @@ export async function getDashboardSummary() {
       .select("id, slug, name, icon, pet_name")
       .order("name"),
     supabase.from("pet_progress").select("category_id, total_xp, energy, current_stage_id"),
-    supabase.from("pet_evolution_stages").select("id, stage_name"),
+    supabase.from("pet_evolution_stages").select("id, stage_name, stage_order"),
     supabase
       .from("goals")
       .select("id, title, progress_percent, due_date, category_id")
@@ -35,11 +35,14 @@ export async function getDashboardSummary() {
       .gte("logged_at", sixtyDaysAgo.toISOString()),
   ]);
 
-  const stageNameById = new Map((stages ?? []).map((stage) => [stage.id, stage.stage_name]));
+  const stageById = new Map(
+    (stages ?? []).map((stage) => [stage.id, { name: stage.stage_name, order: stage.stage_order }]),
+  );
   const progressByCategory = new Map((progress ?? []).map((row) => [row.category_id, row]));
 
   const pets = (categories ?? []).map((category) => {
     const row = progressByCategory.get(category.id);
+    const stage = row ? stageById.get(row.current_stage_id) : undefined;
     return {
       id: category.id,
       slug: category.slug,
@@ -48,7 +51,8 @@ export async function getDashboardSummary() {
       petName: category.pet_name,
       totalXp: row?.total_xp ?? 0,
       energy: row?.energy ?? 100,
-      stageName: row ? stageNameById.get(row.current_stage_id) ?? "Huevo" : "Huevo",
+      stageName: stage?.name ?? "Huevo",
+      stageOrder: stage?.order ?? 0,
     };
   });
 

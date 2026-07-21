@@ -73,9 +73,12 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Archivos: `/lib/missions/*`, edge function `decay-check`
 - Dependencias: Módulos 3, 4
 
-## Módulo 9: Pulido visual de mascotas
-- [ ] Ilustraciones o generación de arte por etapa (placeholder → arte final)
-- [ ] Animación simple de evolución
+## Módulo 9: Pulido visual de mascotas ✅
+- [x] Sistema visual por etapa en `/components/pets/PetAvatar.tsx` (glow creciente, tamaño
+      de ícono e indicador de 8 puntos) en vez de arte generado — sin herramienta de
+      generación de imágenes disponible, se optó por un sistema CSS coherente que sí
+      comunica progresión visual real por etapa (0-7)
+- [x] Animación simple de evolución (`EvolutionCelebration.tsx`, keyframe `pet-evolve-pop`)
 - Archivos: `/components/pets/*`
 - Dependencias: Módulo 3
 
