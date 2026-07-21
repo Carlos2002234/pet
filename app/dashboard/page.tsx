@@ -46,6 +46,13 @@ export default async function DashboardPage() {
           </div>
         </div>
 
+        <Link
+          href="/missions"
+          className="block rounded-lg border border-neutral-800 bg-neutral-900 p-3 text-center text-sm text-neutral-300 underline transition hover:border-neutral-600"
+        >
+          Ver misiones y logros →
+        </Link>
+
         <div>
           <div className="mb-3 flex items-center justify-between">
             <h2 className="text-lg font-medium text-neutral-50">Tus mascotas</h2>

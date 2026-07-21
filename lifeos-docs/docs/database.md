@@ -108,6 +108,8 @@ Misiones diarias/semanales/mensuales generadas por reglas simples en el MVP (sin
 | xp_reward | int | |
 | status | text | pendiente / completada / expirada |
 | expires_at | timestamptz | |
+| rule_key | text | agregado en Módulo 8: identifica la regla fija que evalúa el progreso |
+| target_count | int | agregado en Módulo 8: cuántas veces hay que cumplir la regla para auto-completar |
 
 ## Índices recomendados
 - `action_logs(user_id, logged_at)` — para queries de calendario y reportes

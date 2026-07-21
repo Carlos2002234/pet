@@ -19,15 +19,18 @@ según el cumplimiento de hábitos y objetivos reales del usuario.
 - Un módulo = una feature completa (schema + UI + lógica), no se mezcla trabajo de dos módulos en el mismo commit
 
 ## Estado actual del proyecto
-- Fase: MVP - Módulo 7 (Calendario)
-- Último módulo completado: Módulo 7 — `/app/calendar` con heatmap mensual (`getActivityByRange()`)
-  y distribución por categoría del mes (`getTimeDistribution()`), ambas en `/lib/calendar/`.
-  Heatmap de un solo tono (emerald, 5 niveles de intensidad) con filtro por categoría y
-  navegación de mes/año vía query params. Verificado con usuario real: 14 acciones sembradas
-  en 5 días distintos, la distribución mostró exactamente Lectura 57%/Deporte 43%, y el
-  filtro por categoría redujo el heatmap correctamente (el día con solo acciones de Lectura
-  quedó vacío al filtrar por Deporte).
-- Próximo módulo: Módulo 8 — Gamificación (misiones, logros, decaimiento)
+- Fase: MVP - Módulo 8 (Gamificación)
+- Último módulo completado: Módulo 8 — `/app/missions` con misiones diarias/semanales
+  auto-completadas (`/lib/missions/generateMissions.ts`, `evaluateMissions.ts`) y logros
+  básicos (`getAchievements.ts`). El decaimiento de energía corre vía `pg_cron` (diario,
+  3am) llamando a `decay_inactive_pets_all()` — se usó `pg_cron` + función SQL en vez de
+  una Edge Function Deno porque la lógica es pura SQL. Se agregaron `rule_key`/`target_count`
+  a `missions` (no estaban en `docs/database.md`) porque las misiones se auto-completan
+  comparando progreso real, no con un botón manual. Verificado con usuario real: 3 acciones
+  en Deporte completaron ambas misiones diarias (+60 XP total en Deporte) y desbloqueó el
+  logro "Primer paso"; decaimiento probado directamente (una categoría inactiva 10 días
+  bajó de 100→90 de energía, las demás quedaron intactas).
+- Próximo módulo: Módulo 9 — Pulido visual de mascotas
 
 ## Alcance reducido (decisión del usuario)
 - El MVP arranca con 6 categorías/mascotas, no 15 (deporte, lectura, estudio, finanzas,

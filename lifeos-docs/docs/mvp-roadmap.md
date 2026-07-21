@@ -60,11 +60,16 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Archivos: `/app/calendar/*`, `getActivityByRange()`, `getTimeDistribution()`
 - Dependencias: Módulo 4
 
-## Módulo 8: Gamificación (misiones, logros, decaimiento)
-- [ ] Tablas `missions`, `achievements`, `user_achievements`
-- [ ] Generador simple de misiones diarias/semanales (reglas fijas, sin IA)
-- [ ] Cron de decaimiento de energía (Supabase Edge Function programada)
-- [ ] Sistema de insignias básico
+## Módulo 8: Gamificación (misiones, logros, decaimiento) ✅
+- [x] Tablas `missions`, `achievements`, `user_achievements`
+- [x] Generador simple de misiones diarias/semanales (reglas fijas, sin IA):
+      2 diarias ("3 acciones hoy" + "cuida a tu mascota más descuidada") y 1 semanal
+      ("10 acciones esta semana"), auto-completadas comparando `action_logs` reales
+- [x] Cron de decaimiento de energía — implementado con `pg_cron` llamando directo a
+      una función SQL (`decay_inactive_pets_all()`) en vez de una Edge Function Deno,
+      ya que la lógica es pura SQL y no necesita runtime externo
+- [x] Sistema de insignias básico: 5 logros evaluados en `/app/missions` (primera acción,
+      racha de 3/7 días, primer objetivo completado, primera evolución)
 - Archivos: `/lib/missions/*`, edge function `decay-check`
 - Dependencias: Módulos 3, 4
 
