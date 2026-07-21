@@ -53,9 +53,10 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Archivos: `/app/dashboard/*`, `getDashboardSummary()`
 - Dependencias: Módulos 3, 4, 5
 
-## Módulo 7: Calendario e historial
-- [ ] Vista calendario con `action_logs` por día
-- [ ] Queries de distribución de tiempo por categoría (mes/trimestre)
+## Módulo 7: Calendario e historial ✅
+- [x] Vista calendario con `action_logs` por día (heatmap de un solo tono, intensidad por cantidad
+      de acciones, filtro por categoría, navegación de mes)
+- [x] Queries de distribución de tiempo por categoría del mes (`getTimeDistribution()`)
 - Archivos: `/app/calendar/*`, `getActivityByRange()`, `getTimeDistribution()`
 - Dependencias: Módulo 4
 

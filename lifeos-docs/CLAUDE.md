@@ -19,15 +19,15 @@ según el cumplimiento de hábitos y objetivos reales del usuario.
 - Un módulo = una feature completa (schema + UI + lógica), no se mezcla trabajo de dos módulos en el mismo commit
 
 ## Estado actual del proyecto
-- Fase: MVP - Módulo 6 (Dashboard)
-- Último módulo completado: Módulo 6 — `/app/dashboard` con `getDashboardSummary()`
-  (`/lib/dashboard/getDashboardSummary.ts`): XP total, racha actual (días consecutivos con
-  al menos una acción, tolerante a que "hoy" aún no tenga actividad), % de cumplimiento
-  semanal (días con actividad de los últimos 7 / 7), las 6 mascotas con su etapa/XP/energía,
-  y objetivos activos destacados. `/` y `/login`/`/register` ahora redirigen según sesión
-  (`/dashboard` o `/login`). Verificado con usuario de prueba real: XP total, racha de 2 días
-  y 29% de cumplimiento coincidieron exactamente con los datos sembrados.
-- Próximo módulo: Módulo 7 — Calendario e historial
+- Fase: MVP - Módulo 7 (Calendario)
+- Último módulo completado: Módulo 7 — `/app/calendar` con heatmap mensual (`getActivityByRange()`)
+  y distribución por categoría del mes (`getTimeDistribution()`), ambas en `/lib/calendar/`.
+  Heatmap de un solo tono (emerald, 5 niveles de intensidad) con filtro por categoría y
+  navegación de mes/año vía query params. Verificado con usuario real: 14 acciones sembradas
+  en 5 días distintos, la distribución mostró exactamente Lectura 57%/Deporte 43%, y el
+  filtro por categoría redujo el heatmap correctamente (el día con solo acciones de Lectura
+  quedó vacío al filtrar por Deporte).
+- Próximo módulo: Módulo 8 — Gamificación (misiones, logros, decaimiento)
 
 ## Alcance reducido (decisión del usuario)
 - El MVP arranca con 6 categorías/mascotas, no 15 (deporte, lectura, estudio, finanzas,
