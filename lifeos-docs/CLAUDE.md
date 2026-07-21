@@ -19,9 +19,9 @@ según el cumplimiento de hábitos y objetivos reales del usuario.
 - Un módulo = una feature completa (schema + UI + lógica), no se mezcla trabajo de dos módulos en el mismo commit
 
 ## Estado actual del proyecto
-- Fase: MVP - Módulo 0 (Setup)
-- Último módulo completado: ninguno
-- Próximo módulo: Módulo 1 — Setup, Auth y modelo de categorías
+- Fase: MVP - Módulo 1 (Setup + Auth)
+- Último módulo completado: Módulo 1 — Setup, Next.js + Supabase Auth (email/password; Google OAuth pendiente de credenciales)
+- Próximo módulo: Módulo 2 — Modelo de categorías + seed de las 15 mascotas
 
 ## Reglas importantes para Claude Code
 - NUNCA leer `/src` completo. Pedir siempre archivos específicos.

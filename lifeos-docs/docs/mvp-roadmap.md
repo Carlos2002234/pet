@@ -5,10 +5,10 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 
 ---
 
-## Módulo 1: Setup + Auth
-- [ ] `npx create-next-app` + Tailwind + Supabase client (`/lib/supabase/client.ts`, `server.ts`)
-- [ ] Login/Register (email + Google OAuth)
-- [ ] Middleware de sesión protegiendo `/dashboard` y rutas privadas
+## Módulo 1: Setup + Auth ✅
+- [x] `npx create-next-app` + Tailwind + Supabase client (`/lib/supabase/client.ts`, `server.ts`)
+- [x] Login/Register (email/password funcional; Google OAuth queda como botón placeholder hasta tener credenciales de Google Cloud Console)
+- [x] Proxy de sesión protegiendo `/dashboard` y rutas privadas (Next.js 16 renombró `middleware.ts` a `proxy.ts`)
 - Archivos: `/app/(auth)/*`, `/lib/supabase/*`, `middleware.ts`
 - Dependencias: ninguna
 
