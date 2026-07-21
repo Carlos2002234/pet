@@ -47,12 +47,20 @@ export default async function DashboardPage() {
           </div>
         </div>
 
-        <Link
-          href="/missions"
-          className="block rounded-lg border border-neutral-800 bg-neutral-900 p-3 text-center text-sm text-neutral-300 underline transition hover:border-neutral-600"
-        >
-          Ver misiones y logros →
-        </Link>
+        <div className="grid grid-cols-2 gap-3">
+          <Link
+            href="/farm"
+            className="block rounded-lg border border-neutral-800 bg-neutral-900 p-3 text-center text-sm text-neutral-300 underline transition hover:border-neutral-600"
+          >
+            Ver la granja 🌾
+          </Link>
+          <Link
+            href="/missions"
+            className="block rounded-lg border border-neutral-800 bg-neutral-900 p-3 text-center text-sm text-neutral-300 underline transition hover:border-neutral-600"
+          >
+            Ver misiones y logros →
+          </Link>
+        </div>
 
         <div>
           <div className="mb-3 flex items-center justify-between">

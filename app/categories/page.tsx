@@ -35,13 +35,18 @@ export default async function CategoriesPage() {
   return (
     <main className="min-h-screen bg-neutral-950 px-4 py-12">
       <div className="mx-auto max-w-3xl space-y-8">
-        <div>
-          <h1 className="text-2xl font-semibold text-neutral-50">
-            Tus mascotas
-          </h1>
-          <p className="mt-1 text-sm text-neutral-400">
-            Cada área de tu vida es una mascota que evoluciona contigo.
-          </p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-semibold text-neutral-50">
+              Tus mascotas
+            </h1>
+            <p className="mt-1 text-sm text-neutral-400">
+              Cada área de tu vida es una mascota que evoluciona contigo.
+            </p>
+          </div>
+          <Link href="/farm" className="text-sm text-neutral-400 underline">
+            Ver la granja 🌾
+          </Link>
         </div>
 
         {error && (

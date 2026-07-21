@@ -82,6 +82,14 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Archivos: `/components/pets/*`
 - Dependencias: Módulo 3
 
+## Extra (post-MVP, pedido directo del usuario 2026-07-21): La Granja
+- [x] `/app/farm` — escena con las 6 mascotas viviendo juntas, cada una con animación
+      CSS independiente de vaivén (`farm-wander`, duración/delay distintos por mascota)
+      para que se sientan vivas sin sincronizarse entre sí
+- Archivos: `/app/farm/page.tsx`, `/components/pets/FarmCreature.tsx`
+- No estaba en el roadmap original; el usuario pidió explícitamente "inventar personajes
+  que se muevan" sin herramienta de generación de imágenes disponible
+
 ---
 
 ## FASE 2 (después del MVP — no empezar antes)
