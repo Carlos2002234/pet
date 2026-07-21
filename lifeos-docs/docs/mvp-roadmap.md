@@ -45,10 +45,11 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Archivos: `/app/goals/*`
 - Dependencias: Módulo 2 (no depende del pet engine directamente)
 
-## Módulo 6: Dashboard principal
-- [ ] Vista con las 6 mascotas y su estado (etapa, energía, XP)
-- [ ] Resumen: racha actual, XP total, % cumplimiento semanal
-- [ ] Objetivos activos destacados
+## Módulo 6: Dashboard principal ✅
+- [x] Vista con las 6 mascotas y su estado (etapa, energía, XP)
+- [x] Resumen: racha actual, XP total, % cumplimiento semanal
+- [x] Objetivos activos destacados
+- [x] `/` y `/login`/`/register` ahora redirigen a `/dashboard` según sesión
 - Archivos: `/app/dashboard/*`, `getDashboardSummary()`
 - Dependencias: Módulos 3, 4, 5
 

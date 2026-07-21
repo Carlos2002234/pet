@@ -19,15 +19,15 @@ según el cumplimiento de hábitos y objetivos reales del usuario.
 - Un módulo = una feature completa (schema + UI + lógica), no se mezcla trabajo de dos módulos en el mismo commit
 
 ## Estado actual del proyecto
-- Fase: MVP - Módulo 5 (Objetivos)
-- Último módulo completado: Módulo 5 — `goals`/`goal_subtasks` con RLS, `/app/goals`
-  (crear objetivo con subtareas opcionales, barra de progreso, completar/abandonar).
-  El progreso se recalcula por subtareas cumplidas y al llegar a 100% (o al completar
-  manualmente) se llama a `PetEngine.applyXP()` con el xp_reward del objetivo.
-  Verificado con usuario de prueba real: objetivo con subtareas se completa solo al
-  marcar la última, objetivo sin subtareas se completa con el botón manual, XP correcto
-  en ambos casos.
-- Próximo módulo: Módulo 6 — Dashboard principal
+- Fase: MVP - Módulo 6 (Dashboard)
+- Último módulo completado: Módulo 6 — `/app/dashboard` con `getDashboardSummary()`
+  (`/lib/dashboard/getDashboardSummary.ts`): XP total, racha actual (días consecutivos con
+  al menos una acción, tolerante a que "hoy" aún no tenga actividad), % de cumplimiento
+  semanal (días con actividad de los últimos 7 / 7), las 6 mascotas con su etapa/XP/energía,
+  y objetivos activos destacados. `/` y `/login`/`/register` ahora redirigen según sesión
+  (`/dashboard` o `/login`). Verificado con usuario de prueba real: XP total, racha de 2 días
+  y 29% de cumplimiento coincidieron exactamente con los datos sembrados.
+- Próximo módulo: Módulo 7 — Calendario e historial
 
 ## Alcance reducido (decisión del usuario)
 - El MVP arranca con 6 categorías/mascotas, no 15 (deporte, lectura, estudio, finanzas,
