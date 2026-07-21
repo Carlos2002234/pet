@@ -19,13 +19,15 @@ según el cumplimiento de hábitos y objetivos reales del usuario.
 - Un módulo = una feature completa (schema + UI + lógica), no se mezcla trabajo de dos módulos en el mismo commit
 
 ## Estado actual del proyecto
-- Fase: MVP - Módulo 4 (Acciones/hábitos)
-- Último módulo completado: Módulo 4 — `action_types`/`action_logs` (2 acciones base por
-  categoría vía trigger), Server Action `logAction()` en `/app/categories/[slug]/actions.ts`
-  que registra la acción y llama a `PetEngine.applyXP()`, con feedback "+XP" en la UI.
-  Verificado con usuario de prueba real: XP sube, la mascota evoluciona y el header se
-  actualiza tras cada acción.
-- Próximo módulo: Módulo 5 — Objetivos (goals)
+- Fase: MVP - Módulo 5 (Objetivos)
+- Último módulo completado: Módulo 5 — `goals`/`goal_subtasks` con RLS, `/app/goals`
+  (crear objetivo con subtareas opcionales, barra de progreso, completar/abandonar).
+  El progreso se recalcula por subtareas cumplidas y al llegar a 100% (o al completar
+  manualmente) se llama a `PetEngine.applyXP()` con el xp_reward del objetivo.
+  Verificado con usuario de prueba real: objetivo con subtareas se completa solo al
+  marcar la última, objetivo sin subtareas se completa con el botón manual, XP correcto
+  en ambos casos.
+- Próximo módulo: Módulo 6 — Dashboard principal
 
 ## Alcance reducido (decisión del usuario)
 - El MVP arranca con 6 categorías/mascotas, no 15 (deporte, lectura, estudio, finanzas,

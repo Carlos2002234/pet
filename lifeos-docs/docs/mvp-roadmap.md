@@ -38,10 +38,10 @@ No avanzar al siguiente módulo sin terminar y commitear el actual.
 - Archivos: `/app/categories/[slug]/*`, server action `logAction`
 - Dependencias: Módulo 3
 
-## Módulo 5: Objetivos (goals)
-- [ ] Tablas `goals`, `goal_subtasks`
-- [ ] CRUD de objetivos con fecha límite, dificultad, recompensa
-- [ ] UI de progreso (barra %) y subtareas checkeables
+## Módulo 5: Objetivos (goals) ✅
+- [x] Tablas `goals`, `goal_subtasks`
+- [x] CRUD de objetivos con fecha límite, dificultad, recompensa (crear, completar, abandonar)
+- [x] UI de progreso (barra %, calculada por subtareas cumplidas) y subtareas checkeables
 - Archivos: `/app/goals/*`
 - Dependencias: Módulo 2 (no depende del pet engine directamente)
 
